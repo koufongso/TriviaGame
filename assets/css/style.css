@@ -6,17 +6,27 @@ body{
     text-align: center;
     font-size: 24px;
     border:0px solid black;
-    border-radius: 10px;
-    padding:24px;
+    border-radius: 24px;
+    padding:30px;
     background-color: white;
 
+    position:absolute;
+    width:960px;
+    height:480px;
+    top:50%;
+    left: 50%;
+    margin-left:-480px;
+    margin-top: -280px;
+}
+
+.center{
     position:absolute;
     width:960px;
     height:300px;
     top:50%;
     left: 50%;
     margin-left:-480px;
-    margin-top: -200px;
+    margin-top: -150px;
 }
 
 button{
@@ -34,4 +44,34 @@ button{
 button:hover{
     opacity: 1;
     cursor: pointer;
+}
+
+.question_panel{
+    text-align: left;
+    padding:20px;
+}
+
+.timer{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.question{
+    margin-bottom:20px;
+}
+
+.option{
+    margin-bottom:10px;
+}
+
+input{
+    margin-right: 20px;
+}
+
+#btn-check{
+    position: absolute;
+    bottom:5%;
+    right:5%;
+    background-color: #00cc00;
 }
