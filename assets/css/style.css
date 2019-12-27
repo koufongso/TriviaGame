@@ -1,0 +1,37 @@
+body{
+    background-color:#99ccff;
+}
+
+.main_panel{
+    text-align: center;
+    font-size: 24px;
+    border:0px solid black;
+    border-radius: 10px;
+    padding:24px;
+    background-color: white;
+
+    position:absolute;
+    width:960px;
+    height:300px;
+    top:50%;
+    left: 50%;
+    margin-left:-480px;
+    margin-top: -200px;
+}
+
+button{
+    border-radius: 10px;
+    border: 0px solid black;
+    padding:12px 24px;
+    font-size:24px;
+    color: white;
+    background-color: black;
+    margin: 10px;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+button:hover{
+    opacity: 1;
+    cursor: pointer;
+}
