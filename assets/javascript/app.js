@@ -28,6 +28,7 @@ function newGame() {
     // reset parameters;
     index = -1;
     qRemain = qTotal;
+    qCorrect = 0;
     nextQuestion();     // go to next question
 }
 
