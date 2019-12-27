@@ -19,7 +19,9 @@ var qRemain = qTotal;
 var qCorrect = 0;       // correct questionsv
 
 $(document).on("click", "#btn-start", newGame);
+$(document).on("click", "#btn-restart", newGame);
 $(document).on("click", "#btn-check", check);
+$(document).on("click", "#btn-next", nextQuestion);
 
 function newGame() {
     console.log("starting new game...");
@@ -38,7 +40,10 @@ function nextQuestion() {
         var options = [...questionList[questions[index]]];          // deep  clone the options
         $('.main_panel').empty();
         $('.main_panel').html(`
-            <div class="timer"> Time: ${time} s</div>
+            <div class="info">
+                <div class="timer"> Time: ${time} s</div>
+                <div class="qCounter">${index+1}/${qTotal}</div>
+            </div>
             <div class="question_panel">
                 <div class="question"> ${questions[index]}</div>
                 <form class="option_panel">
@@ -48,11 +53,12 @@ function nextQuestion() {
                     <div class="option" id="D"><input type="radio" name="option" value="D" />${options.splice(Math.floor(Math.random() * options.length), 1)}</div>
                 </form>
                 <button id="btn-check">Check</button>
-        `
-        );
+            </div>
+        `);
+
         timerHandle = setInterval(countDown, 1000);                 // start counting
     } else {
-        alert("it's already the last quesion!");
+        gameOver();
     }
 }
 
@@ -75,10 +81,18 @@ function countDown() {
     }
 }
 
-/* game over, restart new games
+/* display the final score/result
+   strat a new game
 */
 function gameOver() {
-    console.log(gameOver);
+    console.log("gameOver");
+    $('.main_panel').empty();
+    $('.main_panel').html(`
+        <h1>Your Score</h1>
+        <h2>Correct: ${qCorrect}/${qTotal}</h2>
+        <h2>Correct Rate: ${(qCorrect/qTotal)*100} %</h2>
+        <button id="btn-restart">Try again</button>
+    `);
 }
 
 
@@ -89,20 +103,22 @@ function check() {
     clearInterval(timerHandle);
     // check answer
     console.log("check!");
-    var isCorrect = false;
+    var result = "Incorrect";
+    var answer = questionList[questions[index]][0];
     for (var i = 0; i < $('input').length; i++) {
-        if ($($('input')[i]).prop("checked") == true && $('#' + $($('input')[i]).attr("value")).text()==questionList[questions[index]][0]) {
+        if ($($('input')[i]).prop("checked") == true && $('#' + $($('input')[i]).attr("value")).text()==answer) {
             console.log("correct!")
-            isCorrect = true;
+            result = "Correct";
             qCorrect++;
             break;
         }
     }
 
     // display checking page
-    if(isCorrect){
-
-    }
-
-    nextQuestion();
+    $('.main_panel').empty();
+    $('.main_panel').html(`
+        <h1>${result}</h1>
+        <h5>The correct answer is:${answer}</h5>
+        <button id="btn-next">Next</button>
+    `);
 }

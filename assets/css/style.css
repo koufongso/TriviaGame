@@ -52,7 +52,19 @@ button:hover{
 }
 
 .timer{
-    text-align: left;
+    float: left;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.info::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.qCounter{
+    float: right;
     margin-top: 10px;
     margin-bottom:10px;
 }
@@ -69,7 +81,7 @@ input{
     margin-right: 20px;
 }
 
-#btn-check{
+#btn-check, #btn-next, #btn-restart{
     position: absolute;
     bottom:5%;
     right:5%;
