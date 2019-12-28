@@ -1,10 +1,10 @@
 // question dataBase
 // question:[answer,option1,option2...];
 var questionList = {
-    "What is the capital of United States": ["assets/images/washington.jpg", ["Washington, D.C.", "New York", "Los Angelas", "San Francisco"]],
+    "What is the capital of United States": ["assets/images/washington.jpg", ["Washington, D.C.", "New York", "Los Angeles", "San Francisco"]],
     "1+2+3+...+98+99+100=": ["assets/images/math.jpg", [5050, 4950, 5000, 5100]],
     "Which of the following is <strong>NOT</strong> a programming language": ["assets/images/turing.jpg", ["Turing", "Basic", "Fortran", "Pascal"]],
-    "Who is the first exploer to circumnagivate the world": ["assets/images/Ferdinand_Magellan.jpg", ["Ferdinand Magellan", "Vasco da Gama", "Christopher Columbus", "Marco Polo"]]
+    "Who is the first expler to circumnagivate the world": ["assets/images/Ferdinand_Magellan.jpg", ["Ferdinand Magellan", "Vasco da Gama", "Christopher Columbus", "Marco Polo"]]
 };
 
 var questions = Object.keys(questionList);
